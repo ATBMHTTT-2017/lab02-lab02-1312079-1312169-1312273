@@ -1,14 +1,6 @@
 // this is sample schema
-/*
-DROP TABLE NhanVien CASCADE CONSTRAINTS;
-DROP TABLE ChiNhanh CASCADE CONSTRAINTS;
-DROP TABLE ChiTieu CASCADE CONSTRAINTS;
-DROP TABLE DuAn CASCADE CONSTRAINTS;
-DROP TABLE PhongBan CASCADE CONSTRAINTS;
-DROP TABLE PhanCong CASCADE CONSTRAINTS;
-*/
 
-create table NhanVien
+create table NhanVien_1312079_1312169_1312273
 (
   maNV char(10) primary key,
   hoTen nvarchar2(50),
@@ -20,7 +12,7 @@ create table NhanVien
   luong raw(2000)
 );
 
-create table PhongBan
+create table PhongBan_1312079_1312169_1312273
 (
   maPhong char(10) primary key,
   tenPhong nvarchar2(50),
@@ -30,7 +22,7 @@ create table PhongBan
   chiNhanh char(10)
 );
 
-create table DuAn
+create table DuAn_1312079_1312169_1312273
 (
   maDA char(10) primary key,
   tenDA nvarchar2(50),
@@ -39,14 +31,14 @@ create table DuAn
   truongDA char(10)
 );
 
-create table ChiNhanh
+create table ChiNhanh_1312079_1312169_1312273
 (
   maCN char(10) primary key,
   tenCN nvarchar2(50),
   truongChiNhanh char(10)
 );
 
-create table ChiTieu
+create table ChiTieu_1312079_1312169_1312273
 (
   maChiTieu char(10) primary key,
   tenChiTieu nvarchar2(50),
@@ -54,7 +46,7 @@ create table ChiTieu
   duAn char(10)
 );
 
-create table PhanCong
+create table PhanCong_1312079_1312169_1312273
 (
   maNV char(10),
   duAn char(10),
@@ -64,55 +56,55 @@ create table PhanCong
 );
 
 	
-	alter table NhanVien
+	alter table NhanVien_1312079_1312169_1312273
 	add constraint fk_NhanVien_PhongBan
 	foreign key (maPhong)
-	references PhongBan(maPhong);
+	references PhongBan_1312079_1312169_1312273(maPhong);
   
-  alter table NhanVien
-	add	constraint fk_NhanVien_ChiNhanh
+ 	alter table NhanVien_1312079_1312169_1312273
+	add constraint fk_NhanVien_ChiNhanh
 	foreign key (chiNhanh)
-	references ChiNhanh(maCN);
+	references ChiNhanh_1312079_1312169_1312273(maCN);
 
-	alter table PhongBan
+	alter table PhongBan_1312079_1312169_1312273
 	add constraint fk_PhongBan_ChiNhanh
 	foreign key (chiNhanh)
-	references ChiNhanh(maCN);
+	references ChiNhanh_1312079_1312169_1312273(maCN);
   
-  alter table PhongBan
-	add	constraint fk_PhongBan_NhanVien
+ 	alter table PhongBan_1312079_1312169_1312273
+	add constraint fk_PhongBan_NhanVien
 	foreign key (truongPhong)
-	references NhanVien(maNV);
+	references NhanVien_1312079_1312169_1312273(maNV);
 
-	alter table ChiNhanh
+	alter table ChiNhanh_1312079_1312169_1312273
 	add constraint ChiNhanh_NhanVien
 	foreign key (truongChiNhanh)
-	references NhanVien(maNV);
+	references NhanVien_1312079_1312169_1312273(maNV);
 
-	alter table DuAn
+	alter table DuAn_1312079_1312169_1312273
 	add constraint fk_DuAn_PhongBan
 	foreign key (phongChuTri)
-	references PhongBan(maPhong);
+	references PhongBan_1312079_1312169_1312273(maPhong);
   
-  alter table DuAn
-	add	constraint fk_DuAn_NhanVien
+ 	alter table DuAn_1312079_1312169_1312273
+	add constraint fk_DuAn_NhanVien
 	foreign key (truongDA)
-	references NhanVien(maNV);
+	references NhanVien_1312079_1312169_1312273(maNV);
 
-	alter table ChiTieu
+	alter table ChiTieu_1312079_1312169_1312273
 	add constraint fk_ChiTieu_DuAn
 	foreign key (duAn)
-	references DuAn(maDA);
+	references DuAn_1312079_1312169_1312273(maDA);
 
-	alter table PhanCong
+	alter table PhanCong_1312079_1312169_1312273
 	add constraint fk_PhanCong_NhanVien
 	foreign key (maNV)
-	references NhanVien(maNV);
+	references NhanVien_1312079_1312169_1312273(maNV);
   
-  alter table PhanCong
-	add	constraint fk_PhanCong_DuAn
+  	alter table PhanCong_1312079_1312169_1312273
+	add constraint fk_PhanCong_DuAn
 	foreign key (duAn)
-	references DuAn(maDA);
+	references DuAn_1312079_1312169_1312273(maDA);
   
 
 INSERT ALL 
