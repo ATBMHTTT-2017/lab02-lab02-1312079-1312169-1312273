@@ -1,0 +1,6 @@
+
+select value from V$OPTION where PARAMETER = 'Unified Auditing';
+ 
+ audit insert on PhanCong_1312079_1312169_1312273;
+ audit delete on PhanCong_1312079_1312169_1312273;
+ audit update on PhanCong_1312079_1312169_1312273;
