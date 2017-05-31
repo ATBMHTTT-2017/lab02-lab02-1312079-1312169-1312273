@@ -38,4 +38,11 @@ grant nhanVien_role to NV007;
 grant nhanVien_role to NV008;
 grant nhanVien_role to NV009;
 grant nhanVien_role to NV010;
+
+select value from V$OPTION where PARAMETER = 'Unified Auditing';
+ 
+ audit insert on PhanCong_1312079_1312169_1312273;
+ audit delete on PhanCong_1312079_1312169_1312273;
+ audit update on PhanCong_1312079_1312169_1312273;
+
 Contact GitHub 
